@@ -5,267 +5,198 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – ZeitGeist</title>
   <style>
+    :root {
+      --ink:     #18181b;
+      --muted:   #71717a;
+      --line:    #e4e4e7;
+      --bg:      #fafafa;
+      --surface: #ffffff;
+      --accent:  #2563eb;
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #f9fafb;
-      color: #1f2937;
-      line-height: 1.7;
-      font-size: 16px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.75;
     }
-
-    header {
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-      color: white;
-      padding: 48px 24px 40px;
-      text-align: center;
+    .topbar {
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-
-    header .logo {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 8px;
-    }
-
-    header .logo span { color: #a5b4fc; }
-
-    header p {
-      font-size: 0.95rem;
-      opacity: 0.85;
-    }
-
-    main {
-      max-width: 800px;
+    .topbar-inner {
+      max-width: 760px;
       margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.07), 0 4px 16px rgba(0,0,0,0.04);
-      padding: 32px;
-      margin-bottom: 24px;
-    }
-
-    h2 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #4f46e5;
-      margin-bottom: 12px;
+      padding: 14px 24px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
     }
-
-    h2::before {
-      content: attr(data-icon);
-      font-size: 1.2rem;
-    }
-
-    p { margin-bottom: 10px; }
+    .brand { font-size: 1rem; font-weight: 700; letter-spacing: -0.3px; color: var(--ink); text-decoration: none; }
+    .brand em { color: var(--accent); font-style: normal; }
+    .badge { font-size: 0.72rem; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 2px 8px; }
+    main { max-width: 760px; margin: 0 auto; padding: 56px 24px 96px; }
+    .hero { margin-bottom: 56px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+    .hero h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; line-height: 1.3; }
+    .hero p { color: var(--muted); font-size: 0.9rem; }
+    .hero-meta { margin-top: 20px; display: flex; gap: 24px; font-size: 0.82rem; color: var(--muted); }
+    .hero-meta span::before { content: '· '; }
+    .hero-meta span:first-child::before { content: ''; }
+    .summary { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 20px 24px; margin-bottom: 48px; font-size: 0.9rem; }
+    .summary strong { display: block; margin-bottom: 6px; color: var(--accent); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    section { margin-bottom: 48px; }
+    h2 { font-size: 1rem; font-weight: 600; letter-spacing: -0.2px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; color: var(--ink); }
+    .sec-num { font-size: 0.75rem; font-weight: 500; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 20px; }
+    p { margin-bottom: 12px; color: #3f3f46; }
     p:last-child { margin-bottom: 0; }
-
-    ul {
-      padding-left: 20px;
-      margin-bottom: 10px;
-    }
-
-    ul li { margin-bottom: 4px; }
-
-    .highlight {
-      background: #eff6ff;
-      border-left: 3px solid #4f46e5;
-      border-radius: 0 8px 8px 0;
-      padding: 12px 16px;
-      margin: 12px 0;
-      font-size: 0.95rem;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #dcfce7;
-      color: #166534;
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 999px;
-      margin-left: 8px;
-      vertical-align: middle;
-    }
-
-    .tag.warn {
-      background: #fef9c3;
-      color: #854d0e;
-    }
-
-    a { color: #4f46e5; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    footer {
-      text-align: center;
-      color: #9ca3af;
-      font-size: 0.85rem;
-      padding: 24px;
-    }
+    ul { padding-left: 0; margin: 12px 0; list-style: none; }
+    ul li { padding: 6px 0 6px 16px; position: relative; color: #3f3f46; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+    ul li:last-child { border-bottom: none; }
+    ul li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 4px; height: 4px; background: var(--muted); border-radius: 50%; }
+    .note { font-size: 0.85rem; color: var(--muted); border-left: 2px solid var(--line); padding-left: 14px; margin: 14px 0; line-height: 1.6; }
+    .note a { color: var(--accent); text-decoration: none; }
+    .note a:hover { text-decoration: underline; }
+    .tag-inline { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; border-radius: 3px; padding: 1px 6px; margin-left: 6px; vertical-align: middle; }
+    .tag-inline.warn { background: #fefce8; color: #a16207; border-color: #fde68a; }
+    .perm-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 12px 0; }
+    .perm-table th { text-align: left; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); padding: 8px 12px; border-bottom: 2px solid var(--line); }
+    .perm-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; color: #3f3f46; }
+    .perm-table tr:last-child td { border-bottom: none; }
+    .perm-table td:first-child { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.78rem; color: var(--ink); white-space: nowrap; }
+    .contact-block { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 24px; }
+    .contact-block p { margin-bottom: 4px; font-size: 0.9rem; }
+    .contact-block a { color: var(--accent); text-decoration: none; }
+    footer { border-top: 1px solid var(--line); padding: 24px; text-align: center; font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">Zeit<span>Geist</span></div>
-  <p>Datenschutzerklärung · Stand: März 2026</p>
-</header>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#">Zeit<em>Geist</em></a>
+    <span class="badge">Datenschutzerklärung</span>
+  </div>
+</div>
 
 <main>
-
-  <div class="card">
-    <h2 data-icon="📋">Überblick</h2>
-    <p>
-      Diese Datenschutzerklärung gilt für die Android-Apps <strong>ZeitGeist</strong> und
-      <strong>ZeitGeist Pro</strong> (nachfolgend „die App"), entwickelt von
-      <strong>Vasili Buling</strong>.
-    </p>
-    <div class="highlight">
-      Alle erfassten Arbeitszeitdaten werden <strong>ausschließlich lokal auf deinem Gerät</strong>
-      gespeichert. Es gibt keinen eigenen Server, kein Nutzerkonto und keine Cloud-Synchronisation.
+  <div class="hero">
+    <h1>Datenschutzerklärung</h1>
+    <p>Für die Android-Apps <strong>ZeitGeist</strong> und <strong>ZeitGeist Pro</strong></p>
+    <div class="hero-meta">
+      <span>Stand: März 2026</span>
+      <span>Entwickler: Vasili Buling</span>
+      <span>Albstadt, Germany</span>
     </div>
   </div>
 
-  <div class="card">
-    <h2 data-icon="💾">Lokale Datenspeicherung</h2>
-    <p>Die App speichert folgende Daten <strong>nur auf deinem Gerät</strong>:</p>
-    <ul>
-      <li>Arbeitszeiteinträge (Check-In/Check-Out, Pausen, Dauer)</li>
-      <li>Eintragstypen (Krank, Urlaub, Feiertag, Frei)</li>
-      <li>Optionale Felder: Projekt, Notiz, Standort</li>
-      <li>App-Einstellungen (Stundensatz, Pausenregeln, Standort-Präferenzen)</li>
-    </ul>
-    <p>
-      Diese Daten verlassen dein Gerät nicht, außer du exportierst sie manuell
-      (PDF, CSV, Excel) und teilst die Datei selbst.
-    </p>
+  <div class="summary">
+    <strong>Kurzfassung</strong>
+    Alle deine Arbeitszeitdaten werden <strong>ausschließlich lokal auf deinem Gerät</strong> gespeichert.
+    Es gibt keinen eigenen Server, kein Nutzerkonto und keine Cloud-Synchronisation.
+    Du hast jederzeit volle Kontrolle über deine Daten.
   </div>
 
-  <div class="card">
-    <h2 data-icon="📍">Standortdaten (GPS)</h2>
-    <p>
-      Die App kann optional deinen GPS-Standort ermitteln, wenn du das Standort-Feld
-      in den Einstellungen aktivierst. <span class="tag">Opt-In</span>
-    </p>
+  <section>
+    <h2><span class="sec-num">01</span> Geltungsbereich</h2>
+    <p>Diese Datenschutzerklärung gilt für die Android-Applikationen <strong>ZeitGeist</strong> (kostenlose Version) und <strong>ZeitGeist Pro</strong>, entwickelt von Vasili Buling, Albstadt, Germany.</p>
+    <p>Mit der Nutzung der App erklärst du dich mit den hier beschriebenen Datenverarbeitungsvorgängen einverstanden.</p>
+  </section>
+
+  <section>
+    <h2><span class="sec-num">02</span> Lokale Datenspeicherung</h2>
+    <p>Die App speichert sämtliche Nutzerdaten ausschließlich lokal auf dem Gerät. Gespeichert werden:</p>
     <ul>
-      <li>Der GPS-Standort wird nur beim Check-In und beim manuellen Antippen des Standort-Buttons abgefragt</li>
-      <li>Die ermittelten Koordinaten werden über den öffentlichen Dienst
-          <strong>Nominatim (OpenStreetMap)</strong> in eine lesbare Adresse umgewandelt</li>
-      <li>Dabei werden die Koordinaten einmalig an
-          <code>nominatim.openstreetmap.org</code> übermittelt — eine Drittanbieter-API</li>
-      <li>Der Standort wird als Text im Zeiteintrag gespeichert — nur lokal auf deinem Gerät</li>
+      <li>Arbeitszeiteinträge (Check-In, Check-Out, Pausenzeiten, Nettodauer)</li>
+      <li>Eintragstypen: Arbeit, Krank, Urlaub, Feiertag, Frei</li>
+      <li>Optionale Felder: Projektname, Notiz, Standorttext</li>
+      <li>App-Einstellungen (Stundensatz, Pausenkonfiguration, Standorteinstellungen)</li>
     </ul>
-    <div class="highlight">
-      Datenschutzerklärung von OpenStreetMap/Nominatim:
-      <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">
-        osmfoundation.org/wiki/Privacy_Policy
-      </a>
+    <p>Diese Daten verlassen das Gerät nur, wenn du sie manuell als Datei exportierst (PDF, CSV, Excel) und anschließend selbst weiterleitest.</p>
+  </section>
+
+  <section>
+    <h2><span class="sec-num">03</span> Standortdaten <span class="tag-inline">Opt-In</span></h2>
+    <p>Das Standort-Feature ist standardmäßig deaktiviert und kann optional in den Einstellungen aktiviert werden. Es wird ausschließlich genutzt, um beim Check-In den aktuellen Standort als Textfeld vorzubefüllen.</p>
+    <p>Bei aktiviertem Feature werden GPS-Koordinaten einmalig pro Check-In ermittelt und über den öffentlichen Dienst <strong>Nominatim (OpenStreetMap)</strong> in eine lesbare Adresse umgewandelt. Die Koordinaten werden dabei einmalig an <code>nominatim.openstreetmap.org</code> übertragen.</p>
+    <div class="note">
+      Die ermittelte Adresse wird als einfacher Text im Eintrag gespeichert — ausschließlich lokal.<br>
+      Datenschutzerklärung Nominatim/OpenStreetMap: <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">osmfoundation.org/wiki/Privacy_Policy</a>
     </div>
-    <p>
-      Du kannst die Standortfunktion jederzeit in den App-Einstellungen deaktivieren.
-      Das Gerät wird dich um Erlaubnis bitten, bevor der Standort abgerufen wird.
-    </p>
-  </div>
+    <p>Du kannst die Standortfunktion jederzeit in den Einstellungen deaktivieren. Das Betriebssystem fragt vor dem ersten Zugriff nach deiner Erlaubnis.</p>
+  </section>
 
-  <div class="card">
-    <h2 data-icon="⛽">Spritpreise (nur Full-Version)</h2>
-    <p>
-      Die Full-Version der App enthält eine optionale Seite für aktuelle Kraftstoffpreise.
-      Diese Funktion nutzt die <strong>Spritpreisportal-API</strong> des
-      ADAC / Tankerkönig-Projekts.
-    </p>
-    <ul>
-      <li>Es wird eine Postleitzahl oder dein GPS-Standort an die API übermittelt</li>
-      <li>Die API gibt öffentlich verfügbare Kraftstoffpreise zurück</li>
-      <li>Keine personenbezogenen Daten werden dauerhaft dort gespeichert</li>
-    </ul>
-    <div class="highlight">
-      Diese Funktion ist in ZeitGeist (Free) und ZeitGeist Pro <strong>nicht enthalten</strong>.
+  <section>
+    <h2><span class="sec-num">04</span> Werbung <span class="tag-inline warn">Nur ZeitGeist Free</span></h2>
+    <p>Die kostenlose Version <strong>ZeitGeist</strong> enthält Werbebanner über den Dienst <strong>Google AdMob</strong>. AdMob kann dabei Gerätekennungen und anonymisierte Nutzungsdaten verarbeiten, um relevante Anzeigen anzuzeigen.</p>
+    <div class="note">
+      Datenschutzerklärung Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a><br>
+      Personalisierte Werbung deaktivieren: <em>Android-Einstellungen → Google → Datenschutz → Anzeigen</em>
     </div>
-  </div>
+    <p><strong>ZeitGeist Pro</strong> enthält keine Werbung.</p>
+  </section>
 
-  <div class="card">
-    <h2 data-icon="📢">Werbung (nur ZeitGeist Free) <span class="tag warn">Nur Basic</span></h2>
-    <p>
-      Die kostenlose Version <strong>ZeitGeist</strong> kann Werbebanner enthalten,
-      die über <strong>Google AdMob</strong> bereitgestellt werden.
-    </p>
-    <ul>
-      <li>Google AdMob kann Gerätekennungen und Nutzungsverhalten auswerten</li>
-      <li>Es kann interessenbezogene Werbung angezeigt werden</li>
-      <li>Du kannst personalisierte Werbung in den Android-Einstellungen unter
-          <em>Google → Datenschutz → Anzeigen</em> deaktivieren</li>
-    </ul>
-    <div class="highlight">
-      Datenschutzerklärung von Google AdMob:
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
-        policies.google.com/privacy
-      </a>
+  <section>
+    <h2><span class="sec-num">05</span> Spritpreise <span class="tag-inline">Nur Full-Version</span></h2>
+    <p>Die interne Full-Version enthält eine optionale Spritpreisseite, die über die <strong>Tankerkönig-API</strong> öffentlich verfügbare Kraftstoffpreise abruft. Dabei wird eine Postleitzahl oder der GPS-Standort temporär übertragen. Es werden keine personenbezogenen Daten dauerhaft gespeichert.</p>
+    <p>Diese Funktion ist in <strong>ZeitGeist</strong> und <strong>ZeitGeist Pro</strong> nicht verfügbar.</p>
+  </section>
+
+  <section>
+    <h2><span class="sec-num">06</span> Berechtigungen</h2>
+    <table class="perm-table">
+      <thead>
+        <tr><th>Berechtigung</th><th>Zweck</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ACCESS_FINE_LOCATION<br>ACCESS_COARSE_LOCATION</td>
+          <td>GPS für das optionale Standort-Feature. Kein Hintergrund-Tracking. Nur bei aktivierter Standortfunktion.</td>
+        </tr>
+        <tr>
+          <td>INTERNET</td>
+          <td>Nominatim-Adressauflösung, AdMob-Werbung (nur Free-Version), Spritpreise (nur Full-Version).</td>
+        </tr>
+        <tr>
+          <td>WRITE_EXTERNAL_STORAGE</td>
+          <td>Export von PDF-, CSV- und Excel-Dateien in den Download-Ordner.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="sec-num">07</span> Minderjährige</h2>
+    <p>Die App richtet sich an Arbeitnehmer und Selbstständige. Eine Nutzung durch Personen unter 16 Jahren ist nicht vorgesehen. Es werden keine Daten von Minderjährigen wissentlich verarbeitet.</p>
+  </section>
+
+  <section>
+    <h2><span class="sec-num">08</span> Kontakt</h2>
+    <div class="contact-block">
+      <p><strong>Vasili Buling</strong></p>
+      <p>Albstadt, Germany</p>
+      <p><a href="mailto:geistzone.dev@gmail.com">geistzone.dev@gmail.com</a></p>
     </div>
-    <p>
-      <strong>ZeitGeist Pro</strong> und die Full-Version enthalten <strong>keine Werbung</strong>.
-    </p>
-  </div>
+    <p style="margin-top:14px;">Bei Fragen zur Datenverarbeitung oder zur Ausübung deiner Rechte (Auskunft, Berichtigung, Löschung nach DSGVO) wende dich bitte per E-Mail an die oben genannte Adresse.</p>
+  </section>
 
-  <div class="card">
-    <h2 data-icon="🔐">Berechtigungen</h2>
-    <p>Die App fragt folgende Android-Berechtigungen an:</p>
-    <ul>
-      <li>
-        <strong>Standort (ACCESS_FINE_LOCATION / COARSE_LOCATION)</strong> —
-        Nur wenn Standort-Feature aktiviert. Wird nicht im Hintergrund genutzt.
-      </li>
-      <li>
-        <strong>Internetzugang (INTERNET)</strong> —
-        Für Nominatim-Adressauflösung, AdMob (Free) und Spritpreise (Full).
-      </li>
-      <li>
-        <strong>Speicher (READ/WRITE_EXTERNAL_STORAGE)</strong> —
-        Für den Export von PDF, CSV und Excel-Dateien in den Download-Ordner.
-      </li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2 data-icon="👶">Kinder</h2>
-    <p>
-      Die App richtet sich nicht an Kinder unter 16 Jahren.
-      Es werden keine Daten von Kindern wissentlich erfasst.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2 data-icon="✉️">Kontakt</h2>
-    <p>
-      Bei Fragen zum Datenschutz wende dich bitte an:<br><br>
-      <strong>Vasili Buling</strong><br>
-      Albstadt, Germany<br>
-      E-Mail: <a href="mailto:geistzone.dev@gmail.com">geistzone.dev@gmail.com</a>
-    </p>
-  </div>
-
-  <div class="card">
-    <h2 data-icon="📅">Änderungen</h2>
-    <p>
-      Diese Datenschutzerklärung kann bei Bedarf aktualisiert werden.
-      Die aktuelle Version ist stets unter dieser URL abrufbar.
-      Wesentliche Änderungen werden in den App-Versionsnotes kommuniziert.
-    </p>
+  <section>
+    <h2><span class="sec-num">09</span> Änderungen</h2>
+    <p>Diese Datenschutzerklärung kann bei wesentlichen Änderungen der App aktualisiert werden. Die jeweils aktuelle Fassung ist stets unter dieser URL abrufbar. Änderungen werden im App-Updatelog kommuniziert.</p>
     <p><strong>Letzte Aktualisierung:</strong> März 2026</p>
-  </div>
-
+  </section>
 </main>
 
 <footer>
-  &copy; 2026 ZeitGeist · <a href="mailto:geistzone.dev@gmail.com">Kontakt</a>
+  <span>&copy; 2026 ZeitGeist &nbsp;·&nbsp;</span>
+  <a href="mailto:geistzone.dev@gmail.com">geistzone.dev@gmail.com</a>
+  <span>&nbsp;·&nbsp; Albstadt, Germany</span>
 </footer>
 
 </body>
