@@ -2,7 +2,41 @@
 
 Statische GitHub Pages Seite für die Datenschutzerklärung der ZeitGeist Android-Apps.
 
-## 🚀 Einrichten (einmalig, ~5 Minuten)
+**Live:** https://fraeser-1e61.github.io/ZeitGeist-Privacy
+
+---
+
+## Play Store
+
+URL in der Play Console eintragen unter:  
+**App → Store-Eintrag → Datenschutzrichtlinien-URL**
+
+```
+https://fraeser-1e61.github.io/ZeitGeist-Privacy
+```
+
+> Falls GitHub Pages noch nicht aktiviert: Repo → **Settings → Pages → Deploy from branch main → Save**
+
+---
+
+## Inhalt
+
+| Abschnitt | Thema |
+|---|---|
+| 01 | Geltungsbereich |
+| 02 | Lokale Datenspeicherung |
+| 03 | Standortdaten (Opt-In, Nominatim) |
+| 04 | Werbung (nur ZeitGeist Free / AdMob) |
+| 05 | Export-Einschränkung (nur Free, 30 Tage) |
+| 06 | Berechtigungen (Tabelle) |
+| 07 | Minderjährige |
+| 08 | Kontakt (Vasili Buling, geistzone.dev@gmail.com) |
+| 09 | Änderungen |
+
+## Letzte Änderung
+
+2026-03-12 – Full-Version entfernt, 30-Tage-Export-Hinweis ergänzt
+
 
 ### 1. GitHub Repo anlegen
 1. GitHub öffnen → **New repository**
